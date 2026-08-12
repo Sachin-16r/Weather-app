@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather & AQI Web</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!--TITLE -->
+    <h1>🌤️ Weather App</h1>
+
+    <!-- EARCH BOX-->
+    <div class="search-box">
+      <input type="text" id="city" placeholder="Enter city name">
+      <button onclick="getWeather()">
+        Search
+      </button>
+    </div>
+
+    <!-- ERROR MESSAGE -->
+    <p id="error"></p>
+
+    <!--WEATHER CARD -->
+    <div class="weather-card">
+
+      <!-- CITY -->
+      <h2 id="cityName">City Name</h>
+
+        <!-- WEATHER ICON -->
+        <div id="icon" class="weather-icon"> ☀️ </div>
+
+        <!-- WEATHER CONDITION -->
+        <h3 id="condition">Sunny</h3>
+
+        <!-- TEMPERATURE -->
+        <h1 id="temp">--°C</h1>
+
+
+        <!-- BASIC DETAILS -->
+
+        <div class="details">
+
+          <!-- HUMIDITY -->
+          <div class="detail">
+            <span>💧</span>
+            <div>
+              <h4>
+                Humidity
+              </h4>
+              <p id="humidity">--%</p>
+            </div>
+          </div>
+
+          <!-- WIND -->
+          <div class="detail">
+            <span>💨</span>
+            <div>
+              <h4>Wind </h4>
+              <p id="wind"> -- km/h</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COMPLETE WEATHER-->
+
+        <div class="complete-weather">
+          <!-- FEELS LIKE -->
+          <div class="detail">
+            <span>🌡️</span>
+
+            <div>
+              <h4>Feels Like</h4>
+              <p id="feelsLike">--</p>
+            </div>
+
+          </div>
+
+          <!-- WIND DIRECTION -->
+
+          <div class="detail">
+            <span>🧭</span>
+            <div>
+              <h4> Wind Direction</h4>
+              <p id="windDirection">--</p>
+            </div>
+
+          </div>
+
+          <!-- WIND GUST -->
+          <div class="detail">
+            <span>💨</span>
+            <div>
+              <h4>Wind Gust</h4>
+              <p id="windGust">--</p>
+            </div>
+
+          </div>
+
+          <!-- CLOUD COVER -->
+
+          <div class="detail">
+            <span>☁️</span>
+
+            <div>
+              <h4>Cloud Cover</h4>
+              <p id="cloud">--</p>
+            </div>
+
+          </div>
+
+          <!-- RAIN -->
+
+          <div class="detail">
+            <span>🌧️</span>
+
+            <div>
+              <h4>Rain</h4>
+              <p id="rain">--</p>
+            </div>
+
+          </div>
+
+          <!-- RAIN CHANCE -->
+
+          <div class="detail">
+            <span>🌂</span>
+
+            <div>
+              <h4>Rain Chance</h4>
+              <p id="rainChance">-- </p>
+            </div>
+
+          </div>
+
+          <!-- VISIBILITY -->
+
+          <div class="detail">
+            <span>👁️</span>
+
+            <div>
+              <h4>Visibility</h4>
+              <p id="visibility">--</p>
+            </div>
+
+          </div>
+
+          <!-- PRESSURE -->
+
+          <div class="detail">
+            <span>🔽</span>
+
+            <div>
+              <h4>Pressure</h4>
+              <p id="pressure">--</p>
+            </div>
+
+          </div>
+
+          <!-- SUNRISE -->
+
+          <div class="detail">
+            <span>🌅</span>
+
+            <div>
+              <h4>Sunrise</h4>
+              <p id="sunrise">--</p>
+            </div>
+
+          </div>
+
+          <!-- SUNSET -->
+          <div class="detail">
+            <span>🌇</span>
+
+            <div>
+              <h4>Sunset</h4>
+              <p id="sunset">--</p>
+            </div>
+
+          </div>
+
+          <!-- UV INDEX -->
+
+          <div class="detail">
+            <span>☀️</span>
+
+            <div>
+              <h4>UV Index</h4>
+              <p id="uv">--</p>
+              <small id="uvText">--</small>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- AIR QUALITY -->
+
+        <div class="air-quality">
+          <h2>🌫️ Air Quality</h2>
+
+          <!-- AQI -->
+          <div class="aqi-box">
+            <h3 id="aqi">--</h3>
+            <strong id="aqiText">--</strong>
+          </div>
+
+          <!-- PM2.5 + PM10 -->
+          <div class="details">
+
+            <div class="detail">
+              <span>🌫️</span>
+
+              <div>
+                <h4>PM2.5</h4>
+                <p id="pm25">--</p>
+              </div>
+
+            </div>
+
+
+            <div class="detail">
+
+              <span>🌫️</span>
+              <div>
+                <h4>PM10</h4>
+                <p id="pm10">--</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CO + NO2 -->
+          <div class="details">
+
+            <div class="detail">
+              <span>CO</span>
+
+              <div>
+                <h4>Carbon Monoxide</h4>
+                <p id="co">--</p>
+              </div>
+
+            </div>
+
+            <div class="detail">
+              <span> NO₂</span>
+
+              <div>
+                <h4>Nitrogen Dioxide</h4>
+                <p id="no2">--</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- SO2 + O3 -->
+          <div class="details">
+
+            <div class="detail">
+              <span>SO₂</span>
+              <div>
+                <h4>Sulphur Dioxide</h4>
+                <p id="so2">--</p>
+              </div>
+            </div>
+
+            <div class="detail">
+              <span>O₃</span>
+              <div>
+                <h4>Ozone</h4>
+                <p id="o3">--</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
